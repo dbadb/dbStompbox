@@ -1,0 +1,69 @@
+/* global Project */
+
+let usbStyle = "USB_MIDI_SERIAL";
+Project.SetBuildVar("USBTYPE", usbStyle);
+let m = Project.NewModule("dbStompbox");
+let libnms = [
+    // lib order matters for linking, lower-level libs should appear later
+    // `libControlSurface_${usbStyle}`, 
+    "libBounce", 
+    "libwire", 
+];
+let libcore = `libcore_${usbStyle}`;
+let searchpaths = libnms.map( (nm) => 
+{
+    return Project.FindModule(nm).Interpolate("${INCDIR}");
+});
+let liblists = libnms.map((nm) =>
+{
+    return Project.FindModuleOutputs(nm);
+});
+liblists.push(Project.FindModuleOutputs(libcore));
+let libs = [].concat(...liblists); // flatten [[a,b,c], [d], [e]] -> [a,b,c,d,e]
+
+// gcc -c -Os --specs=nano.specs -g -Wall \
+//  "-Iteensy3" "name.c" -o \
+//  "name.c.o"
+
+let t1 = m.NewTask("compile", "cpp->o", 
+{
+    inputs: Project.Glob("*.cpp"),
+    define: 
+    {
+        USB_MIDI_SERIAL: null
+    },
+    searchpaths: searchpaths
+});
+
+let t1a = m.NewTask("Compile", "c->o",
+{
+    inputs: Project.Glob("*.c"),
+    define: 
+    {
+        USB_MIDI_SERIAL: null
+    },
+    searchpaths: searchpaths
+});
+
+let t2 = m.NewTask("dbStompbox", "cpp.o->elf", 
+{
+    inputs: [...t1.GetOutputs(), ...t1a.GetOutputs(), ...libs],
+    searchpaths: []
+});
+
+let t3 = m.NewTask("extractData", "elf->eep", 
+{
+    inputs: t2.GetOutputs()
+});
+let t4 = m.NewTask("extractCode", "elf->hex", 
+{
+    inputs: t2.GetOutputs()
+});
+let t5 = m.NewTask("reportSize", "report", 
+{
+    inputs: t2.GetOutputs()
+});
+let t6 = m.NewTask("upload", "postcompile", 
+{
+    inputs: t4.GetOutputs()
+});
