@@ -47,7 +47,9 @@ footboard.
 | Phone Jacks   | 6     | From footboard to Teensy | [Amazon](https://www.amazon.com/dp/B07JP82FFX)    | $1 ea            |
 | Foot Switches | 6     | Momentary Foot Switches  | [Amazon](https://www.amazon.com/dp/B08TBTWDYV)    | $2 ea            |
 | Footboard     | 1     | A piece of wood          |                                                   | $0 - $20            |
-| Wire, Solder  |  | | | |
+
+Since you are handy with a soldering iron we assume you already have a 
+soldering iron, wire, wire-cutters, solder and a continuity checker.
 
 Total cost without expression pedals is under $30 dollars. A bargain at twice
 the price.
