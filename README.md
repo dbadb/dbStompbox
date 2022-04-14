@@ -87,7 +87,7 @@ Build and deploy.
 
 Here's the cigar box to house the TeensyLC:
 
-<img src="./images/dbCigarbox.jpg" style="width:50%">
+<img src="./images/dbCigarBox.jpg" style="width:50%">
 
 Here's the Teensy wired and in place:
 
