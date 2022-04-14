@@ -11,7 +11,7 @@ Fiddle is a free and open music-making engine (DAW).  You can learn more
 about Fiddle [here](https://cannerycoders.com/#Fiddle).
 
 <center>
-<img src="./overview.png">
+<img src="./images/overview.png">
 </center>
 
 ## The Prerequisites
@@ -59,7 +59,7 @@ pullup mode. This means that one button terminal is connected to ground
 an the other to a digital pin.  Here pins D0-D5 are connected to your buttons.
 
 <center>
-<img src="./teensyPins.png">
+<img src="./images/teensyPins.png">
 </center>
 
 Pins A8, A9 are used to sample the expression pedals.  Expression pedals
@@ -69,7 +69,7 @@ ARef or the 3.3V pin.  Here is a crude diagram represeting the portion of
 the TRS jack and the associated signal.
 
 <center>
-<img src="./trsWiring.png">
+<img src="./images/trsWiring.png">
 </center>
 
 ## To Build the Software
@@ -87,20 +87,20 @@ Build and deploy.
 
 Here's the cigar box to house the TeensyLC:
 
-<img src="./dbCigarbox.jpg" style="width:50%">
+<img src="./images/dbCigarbox.jpg" style="width:50%">
 
 Here's the Teensy wired and in place:
 
-<img src="./dbStompBox.jpg" style="width:50%">
+<img src="./images/dbStompBox.jpg" style="width:50%">
 
 And now it's ready for action:
 
-<img src="./dbStompBoxClose.jpg" style="width:500px">
+<img src="./images/dbStompBoxClose.jpg" style="width:500px">
 
 Here's the footboard:
 
-<img src="./dbStompboard.jpg" style="width:500px">
+<img src="./images/dbStompBoard.jpg" style="width:500px">
 
 And the whole setup, complete with expression pedals:
 
-<img src="./dbStompAction.jpg" style="width:500px">
+<img src="./images/dbStompAction.jpg" style="width:500px">
