@@ -4,7 +4,7 @@ dbStompbox is a simple TeensyLC-based MIDI controller.
 
 Stompboxes are useful for hands-free music-making. Combine a stompbox
 with a looper and a guitar and magic musical moments (TM) are are
-yours for the picking.
+yours for the "picking".
 
 dbStompbox was built as part of a tutorial of Fiddle's Looper capability.
 Fiddle is a free and open music-making engine (DAW).  You can learn more
@@ -54,9 +54,13 @@ the price.
 
 ## Wiring
 
-The Teensy wiring is trivial.  Each footswitch is a button operating in
-pullup mode. This means that one button terminal is connected to ground
-an the other to a digital pin.  Here pins D0-D5 are connected to your buttons.
+The Teensy wiring is trivial.  Each footswitch is a button that, when press,
+makes a connection. We've configured the software to operate a digital input
+pin in pullup mode. This means that all button have one terminal that's connected 
+ground. Its other terminal is wired to a Teensy pin.  When you stomp the
+footswitch it causes the Teensy pin to "go to ground" and this triggers
+the emission of a MIDI control signal.  Here pins D0-D5 are connected 
+to your buttons.
 
 <center>
 <img src="./images/teensyPins.png">
@@ -65,8 +69,9 @@ an the other to a digital pin.  Here pins D0-D5 are connected to your buttons.
 Pins A8, A9 are used to sample the expression pedals.  Expression pedals
 introduce a variable resister (potentiometer) between the reference voltage
 and ground.  In the 3.3V TeensyLC, the reference signal is obtained from either
-ARef or the 3.3V pin.  Here is a crude diagram represeting the portion of
-the TRS jack and the associated signal.
+ARef or the 3.3V pin.  Here is a crude diagram representing the portion of
+the TRS jack and its associated signal connections.  The green wire represents
+the state of the expression pedal and is wired to the Teensy pin A8 or A9.
 
 <center>
 <img src="./images/trsWiring.png">
@@ -82,6 +87,31 @@ Make sure to select Teensy LC as your board.
 Select Serial+Midi as the USB Type.
 
 Build and deploy.
+
+## In Operation
+
+When the project is deployed at the stompboard is functioning. Plug the USB
+cable into your computuer. The new device should appear in the MIDI input
+registry under the name dbStompbox.
+
+Here are the MIDI signals it emits:
+
+|Name|Description|
+|:---|:--        |
+|CC8 Continuous Controller 1| Expression Pedal on Pin 22 (A9)|
+|CC9 Continuous Controller 2| Expression Pedal on Pin 23 (A8)|
+|CC64 | Footswitch 1 |
+|CC65 | Footswitch 2 |
+|CC66 | Footswitch 3 |
+|CC67 | Footswitch 4 |
+|CC68 | Footswitch 5 |
+|CC69 | Footswitch 6 |
+
+These values can easily be changed by modifying and redeploying the software.
+
+If you find that your continuous controller does't capture the full range of
+motion, you may need to tweak the logic in the software.  Different controllers
+have different variable resistor loads and "tapering".
 
 ## Photos
 
