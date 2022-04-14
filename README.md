@@ -89,11 +89,13 @@ Here's the cigar box to house the TeensyLC:
 
 <img src="./images/dbCigarBox.jpg" style="width:50%">
 
-Here's the Teensy wired and in place:
+Here's the Teensy wired and in place. The back, bottom-left
+is the USB wire that powers and connects the Teensy to your
+computer.  Phone jacks connect on the top of the box.
 
 <img src="./images/dbStompBox.jpg" style="width:50%">
 
-And now it's ready for action:
+And now it's ready for action.  
 
 <img src="./images/dbStompBoxClose.jpg" style="width:500px">
 
