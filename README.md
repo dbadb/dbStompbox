@@ -22,7 +22,7 @@ about Fiddle [here](https://cannerycoders.com/#Fiddle).
 
 ## The Hardware Design
 
-It's amazingly simple to build your own custom MIDI controller.  Combine
+It is amazingly simple to build your own custom MIDI controller.  Combine
 any number of digital sensors with a Teensy and you are on your way. 
 
 In this example, we support two expression pedals (for, eg Wah and Volume) 
@@ -30,11 +30,11 @@ with a number of foot-switches (for, eg multi-channel looper control)
 to deliver hands-free control over a DAW for guitar players.
 
 We house the Teensy and phone-socket connection points in a free-standing
-cigar-box.  The sturdy wooden construction of these boxes make it easy to 
+cigar-box.  The sturdy wooden construction of these boxes makes it easy to 
 mount hardware connection points.
 
 As a separate "device", we house the 6 footswitches.  Each switch is
-connected to the  USB box through its own phone jack and this allows us
+connected to the USB-MIDI box through its own phone jack and this allows us
 to support off-the shelf MIDI sustain pedals in addition to our custom 
 footboard.
 
@@ -49,18 +49,19 @@ footboard.
 | Footboard     | 1     | A piece of wood          |                                                   | $0 - $20            |
 
 Since you are handy with a soldering iron we assume you already have a 
-soldering iron, wire, wire-cutters, solder and a continuity checker.
+soldering iron, wire, wire-cutters, solder and a continuity checker. A glue-gun
+is also very handy for securing wires in place.
 
 Total cost without expression pedals is under $30 dollars. A bargain at twice
 the price.
 
 ## Wiring
 
-The Teensy wiring is trivial.  Each footswitch is a button that, when press,
-makes a connection. We've configured the software to operate a digital input
-pin in pullup mode. This means that all button have one terminal that's connected 
-ground. Its other terminal is wired to a Teensy pin.  When you stomp the
-footswitch it causes the Teensy pin to "go to ground" and this triggers
+The Teensy wiring is trivial.  Each footswitch is a button that, when pressed,
+completes a circuit. We've configured the software to operate a digital input
+pin in pullup mode. This means that all buttons share one terminal that's 
+connected to ground. Its other terminal is wired to a Teensy pin.  When you 
+stomp a footswitch it causes the Teensy pin to "go to ground" and this triggers
 the emission of a MIDI control signal.  Here pins D0-D5 are connected 
 to your buttons.
 
@@ -92,8 +93,9 @@ Build and deploy.
 
 ## In Operation
 
-When the project is deployed at the stompboard is functioning. Plug the USB
-cable into your computuer. The new device should appear in the MIDI input
+When the project is deployed, the stompboard is functioning. The Teensy LED
+blinks slowly to indicate all is alive and well. Plug the USB cable into 
+your computuer. The new USB-MIDI device should appear in the MIDI input
 registry under the name dbStompbox.
 
 Here are the MIDI signals it emits:
@@ -111,9 +113,10 @@ Here are the MIDI signals it emits:
 
 These values can easily be changed by modifying and redeploying the software.
 
-If you find that your continuous controller does't capture the full range of
-motion, you may need to tweak the logic in the software.  Different controllers
-have different variable resistor loads and "tapering".
+If you find that your continuous controller doesn't capture the full range of
+motion, you may need to tweak the logic in the software or remap the range
+in your DAW. Different controllers have different variable resistor loads 
+and "tapering".
 
 ## Photos
 
@@ -135,6 +138,6 @@ Here's the footboard:
 
 <img src="./images/dbStompBoard.jpg" style="width:500px">
 
-And the whole setup, complete with expression pedals:
+And the whole setup, complete with off-the-shelf expression pedals:
 
 <img src="./images/dbStompAction.jpg" style="width:500px">

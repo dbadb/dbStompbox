@@ -19,8 +19,8 @@ enum Pins
 
     kLED = 13,
 
-    kExpression0 = A9, // aka 22
-    kExpression1 = A8, // aka 23
+    kExpression0 = A9, // aka 23
+    kExpression1 = A8, // aka 22
 };
 
 enum SwitchCCs
