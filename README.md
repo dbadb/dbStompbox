@@ -78,6 +78,7 @@ the state of the expression pedal and is wired to the Teensy pin A8 or A9.
 
 <center>
 <img src="./images/trsWiring.png">
+<img src="./images/trsWiring2.png">
 </center>
 
 ## To Build the Software
