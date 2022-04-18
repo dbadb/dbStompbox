@@ -99,7 +99,7 @@ blinks slowly to indicate all is alive and well. Plug the USB cable into
 your computuer. The new USB-MIDI device should appear in the MIDI input
 registry under the name dbStompbox.
 
-Here are the MIDI signals it emits:
+Here are the MIDI signals dbStombox emits:
 
 |Name|Description|
 |:---|:--        |
