@@ -3,7 +3,7 @@
 dbStompbox is a simple TeensyLC-based MIDI controller.
 
 Stompboxes are useful for hands-free music-making. Combine a stompbox
-with a looper and a guitar and magic musical moments (TM) are are
+with a looper and a guitar and magic musical moments (TM) are
 yours for the "picking".
 
 dbStompbox was built as part of a tutorial of Fiddle's Looper capability.
